@@ -7,7 +7,7 @@ using TallerAPI.Services;
 
 namespace TallerAPI.Controllers
 {
-    public class UserController : Controller 
+    public class UserController : Controller
     {
         UserService userService = new UserService();
 
