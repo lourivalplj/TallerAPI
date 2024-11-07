@@ -11,4 +11,4 @@ namespace TallerAPI.Entities
         public string username { get; set; }
         public string name { get; set; }
     }
-}
+} 

@@ -35,5 +35,5 @@ namespace TallerAPI.Controllers
             })
             .ToArray();
         }
-    }
+    } 
 }
