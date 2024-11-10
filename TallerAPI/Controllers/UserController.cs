@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using TallerAPI.Entities;
 using TallerAPI.Services;
 
 namespace TallerAPI.Controllers
@@ -17,14 +19,16 @@ namespace TallerAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get(string username)
+        public User Get(string username)
         {
-            var response = userService.GetUser(username);
+            var user = userService.GetUser(username);
 
-            if (response is null)
-                return Response.StatusCode  //NotFound
-            else
-                return //OK
+            //if (user is null)
+            //    HttpStatusCode.NotFound;
+            //else
+            //    HttpStatusCode.OK;
+
+            return user;
                    
         }
     }
