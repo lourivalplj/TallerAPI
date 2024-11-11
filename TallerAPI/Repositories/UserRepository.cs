@@ -25,18 +25,19 @@ namespace TallerAPI.Repositories
 
         public UserRepository GetUser(String username)
         {
-
-            using (var context = new DatabaseContext())
+            using (SqlConnection con = new SqlConnection(conn))
             {
-                var userUsername = new SqlParameter("@username", username);
+                using (SqlCommand cmd = new SqlCommand("GetUser", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                var result = context.Database
-                    .SqlQuery<User>("GetUser @username", userUsername)
-                    .ToList();
+                    cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+                   
+                    con.Open();
+                    cmd.ExecuteQuery();
+                }
             }
-
         }
-
 
     } 
 }
